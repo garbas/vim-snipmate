@@ -8,16 +8,23 @@ let s:did_snips_mappings = 1
 " This is put here in the 'after' directory in order for snipMate to override
 " other plugin mappings (e.g., supertab).
 "
-" You can safely adjust these mappings to your preferences (as explained in
-" :help snipMate-remap).
-ino <silent> <tab> <c-g>u<c-r>=TriggerSnippet()<cr>
-snor <silent> <tab> <esc>i<right><c-r>=TriggerSnippet()<cr>
-ino <silent> <s-tab> <c-r>=BackwardsSnippet()<cr>
-snor <silent> <s-tab> <esc>i<right><c-r>=BackwardsSnippet()<cr>
-ino <silent> <c-r><tab> <c-r>=ShowAvailableSnips()<cr>
+" To adjust the tirgger key see (:h snipMate-trigger)
+"
+if !exists('g:snips_trigger_key')
+  let g:snips_trigger_key = '<tab>'
+endif
+
+" Need the key without <>:
+let s:snips_trigger_key_normalized = substitute(g:snips_trigger_key, '[<>]', '', 'g')
+
+exec 'ino <silent> ' . g:snips_trigger_key . ' <c-g>u<c-r>=TriggerSnippet()<cr>'
+exec 'snor <silent> ' . g:snips_trigger_key . ' <esc>i<right><c-r>=TriggerSnippet()<cr>'
+exec 'ino <silent> <s-' . s:snips_trigger_key_normalized . '> <c-r>=BackwardsSnippet()<cr>'
+exec 'snor <silent> <s-' . s:snips_trigger_key_normalized . '> <esc>i<right><c-r>=BackwardsSnippet()<cr>'
+exec 'ino <silent> <c-r>' . g:snips_trigger_key. ' <c-r>=ShowAvailableSnips()<cr>'
 
 " maybe there is a better way without polluting registers ?
-vnoremap <tab> s<c-o>:let<space>g:snipmate_content_visual=getreg('1')<cr>
+exec 'vnoremap ' . g:snips_trigger_key. ' s<c-o>:let<space>g:snipmate_content_visual=getreg('1')<cr>'
 
 " The default mappings for these are annoying & sometimes break snipMate.
 " You can change them back if you want, I've put them here for convenience.
