@@ -90,18 +90,23 @@ Using `VAM`_
 
 .. todo:: need to test and write howto
 
-Using `pathogen`_ and `git submodule`_
+Using `pathogen`_
 --------------------------------------
 
 ::
+
     % cd ~/.vim
-    % mkdir bundle -p
-    % git submodule add git://github.com/garbas/vim-snipmate.git bundle/snipmate 
+    % mkdir bundle
+    % cd bundle
+    % git clone https://github.com/tomtom/tlib_vim.git
+    % git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
+    % git clone git://github.com/garbas/vim-snipmate.git
 
 Manually
 --------
 
 ::
+
     % git clone git://github.com/msanders/snipmate.vim.git
     % cd snipmate.vim
     % cp -R * ~/.vim
@@ -132,7 +137,6 @@ TODO / Future
 .. _`Rok Garbas`: rok@garbas.si
 .. _`VAM`: https://github.com/MarcWeber/vim-addon-manager
 .. _`pathogen`: http://www.vim.org/scripts/script.php?script_id=2332
-.. _`git submodule`: http://www.kernel.org/pub/software/scm/git/docs/git-submodule.html
 .. _`vim-addon-mw-utils`: https://github.com/MarcWeber/vim-addon-mw-utils
 .. _`tlib`: https://github.com/tomtom/tlib_vim
 
