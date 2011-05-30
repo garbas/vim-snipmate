@@ -129,11 +129,11 @@ Using `pathogen`_
     % cd ~/.vim
     % mkdir bundle
     % cd bundle
-    % git clone https://github.com/tomtom/tlib_vim.git
-    % git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
     % git clone git://github.com/garbas/vim-snipmate.git
 
-Then install any dependencies (see above).
+    # Install dependencies:
+    % git clone https://github.com/tomtom/tlib_vim.git
+    % git clone https://github.com/MarcWeber/vim-addon-mw-utils.git
 
 Using `Vundle`_
 ---------------
