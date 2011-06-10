@@ -1,3 +1,14 @@
+# Generic tags
+
+snippet %
+	{% ${1} %}${2}
+snippet %%
+	{% ${1:tag_name} %}
+	${2}
+	{% end$1 %}
+snippet {
+	{{ ${1} }}${2}
+
 # Template Tags
 
 snippet autoescape
