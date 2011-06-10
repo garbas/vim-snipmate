@@ -43,6 +43,9 @@ Changelog
 1.0 [Unreleased]
 ----------------
 
+    * Adding general snippets to ``css.snippets`` and ``htmldjango.snippets``
+      [2011-06-10, `pielgrzym`_]
+
     * Adding ``css.snippets`` from `tisho`_
       (https://github.com/tisho/css-snippets-snipmate)
       [2011-04-17, `garbas`_]
