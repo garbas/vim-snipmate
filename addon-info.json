@@ -6,7 +6,11 @@
   "repository" : {"type": "git", "url": "git://github.com/MarcWeber/snipMate.vim.git"},
   "dependencies" : {
     "vim-addon-mw-utils": {},
-    "tlib": {}
+    "tlib": {},
+    "snippets": {
+      "type": "git",
+      "url": "https://honza@github.com/honza/snippets.git"
+    }
   },
   "description" : "snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim. See README.markdown to learn about the features this fork adds"
 }
