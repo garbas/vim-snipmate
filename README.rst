@@ -175,6 +175,17 @@ That all users can benefit from them people can list their snippet repositories 
 
 Installation using VAM: "github:rbonvall/snipmate-snippets-bib"
 
+Custom snippets directory location
+----------------------------------
+
+If you would like to place your snippets files into a directory anywhere on the
+filesystem, you can use the following trick. This goes in your ``.vimrc``::
+
+    let g:snipMate = {}
+    let g:snipMate['snippet_dirs'] = funcref#Function('return ["~/snippets"]')
+
+This is a temporary solution until we can fix it properly.
+
 Why forking snipMate?
 =====================
 
