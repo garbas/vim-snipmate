@@ -32,12 +32,12 @@ Thus i recommend vim-addon-manager to install snipMate because this will also
 fetch the dependencies for you.
 
 The complete set of dependencies can be found in snipMate-addon-info.txt
-The current VAM-plugin name for this enhanced verison of snipMate is "snipMate".
+The current VAM-plugin name for this enhanced version of snipMate is "snipMate".
 
 ==============================================================================
 DESCRIPTION                                             *snipMate-description*
 
-snipMate is an extension to Vim which allows you to store and retrtieve text
+snipMate is an extension to Vim which allows you to store and retrieve text
 snippets with placeholders in a very convenient way.
 
 snipMate is inspired by TextMate's snippet features.
@@ -47,13 +47,13 @@ RELATED WORK                                 *snipMate-related-work*
 
 There are some alternatives:
 - ultisnips (python based)
-- xptemplate which is probaly a much more powerful
+- xptemplate which is probably a much more powerful
   but also more complex
 - (..?)
 
 snipmate is not perfect - however it gets its job done perfectly and gets out
 of your way. So if you want to get started fast without reading too much
-documentation probaly snipmate is for you.
+documentation probably snipmate is for you.
 
 ==============================================================================
 USAGE (GETTING STARTED QUICKLY)                               *snipMate-usage*
@@ -107,7 +107,7 @@ plugin/snipMate.vim assigns three important keys:
   let g:snipMateSources['default'] = snipMate#DefaultPool
   " default directories containing snippets:
   let g:snipMate['snippet_dirs'] = funcref#Function('return split(&runtimepath,",")')
-<  
+<
 You can override all of those settings.
 
 You can see that the default set of snippets is determined by Vim's |rtp|.
@@ -132,7 +132,7 @@ one snippet per file:
 
 many snippets per file, triggers are specified in file, see below:
   |rtp|/snippets/<filetype>.snippets (RECOMMENDED)
-  |rtp|/snippets/<filetype>/*.snippets 
+  |rtp|/snippets/<filetype>/*.snippets
 
 
 See |snipMate-disambiguation| to learn about how name collisions are handled.
@@ -225,7 +225,7 @@ use the "${#:}" construct without the text; e.g.: >
                                           *snipMate-visual-selection-support*
 There is a special placeholder called {VISUAL}. If you visually select text,
 then press <tab> Vim switches to insert mode. The next snippet you'll expand
-will replace {VISUAL} by the the text which was selected previously
+will replace {VISUAL} by the text which was selected previously
 
 Interpolated Vim Script ~
 
@@ -296,7 +296,7 @@ snipMate. To configure the key set g:snips_trigger_key to something other than
 
  let g:snips_trigger_key='<c-space>'
 
-snipMate will try to automaticaly configure backwards trigger to prepend shift
+snipMate will try to automatically configure backwards trigger to prepend shift
 key infront, e.g. <s-tab> or <s-c-space>. You can manually configure backward
 trigger using:
 
@@ -346,8 +346,8 @@ CONTACT                                   *snipMate-contact* *snipMate-author*
 current maintainers:
   - garbas
   - Marc Weber (marco-oweber@gmx.de)
-You sohuld consider creating a github ticket or contacting us because the
-original author Michael Sanders did not act uppon change requests for long
+You should consider creating a github ticket or contacting us because the
+original author Michael Sanders did not act upon change requests for long
 time. Anyway - he did most of the hard initial work.
 
 To contact the author (Michael Sanders), please email:
