@@ -538,12 +538,18 @@ endf
 
 " don't ask me wy searching for trigger { is soo slow.
 fun! s:Glob(dir,  file)
-	let f= a:dir.a:file
+	let f = s:EscapeGlob(a:dir.a:file)
 	if a:dir =~ '\*' || isdirectory(a:dir)
 		return split(glob(f),"\n")
 	else
 		return filereadable(f) ? [f] : []
 	endif
+endf
+
+fun! s:EscapeGlob(file)
+	let f = substitute(a:file,"{","\\\\{",'')
+	let f = substitute(f,"}","\\\\}",'')
+	return f
 endf
 
 " returns dict of
