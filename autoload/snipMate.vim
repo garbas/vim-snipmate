@@ -538,7 +538,7 @@ endf
 
 " don't ask me wy searching for trigger { is soo slow.
 fun! s:Glob(dir,  file)
-	let f= a:dir.a:file
+	let f = a:dir.a:file
 	if a:dir =~ '\*' || isdirectory(a:dir)
 		return split(glob(escape(f,"{}")),"\n")
 	else
