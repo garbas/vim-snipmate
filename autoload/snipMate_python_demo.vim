@@ -2,7 +2,7 @@
 " - how to register your own snippet sources (call snipMate_python_demo#Activate() in ftplugin/python.vim)
 " - implents a source which creates snippets based on python function
 "   definitions found in the current file
-"   
+"
 " Example:
 "
 " def abc(a,b,c=None)
@@ -39,7 +39,7 @@ fun! snipMate_python_demo#FunctionsFromCurrentFileAndTags(scopes, trigger, resul
   if a:trigger == '*' | return | endif
   if index(a:scopes, 'python') < 0 | return | endif
   for t in taglist('^'.a:trigger)
-    call s:Add(a:result, t.cmd, 'tags-'.filename)
+    call s:Add(a:result, t.cmd, 'tags-' . t.filename, a:trigger)
   endfor
   for l in getline(0, line('$'))
     call s:Add(a:result, l, 'current-file', a:trigger)
