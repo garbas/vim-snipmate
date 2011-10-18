@@ -201,6 +201,13 @@ Why forking snipMate?
 
 
 
+Known Bugs
+=============
+
+
+    * Set one value default as input of another value.
+      https://github.com/garbas/vim-snipmate/issues/59
+      [2011-10-18, `bogdan`_]
 
 TODO / Future
 =============
