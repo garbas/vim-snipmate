@@ -22,7 +22,7 @@ exec 'ino <silent> ' . g:snips_trigger_key . ' <c-g>u<c-r>=snipMate#TriggerSnipp
 exec 'snor <silent> ' . g:snips_trigger_key . ' <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>'
 exec 'ino <silent> ' . g:snips_trigger_key_backwards . '> <c-r>=snipMate#BackwardsSnippet()<cr>'
 exec 'snor <silent> ' . g:snips_trigger_key_backwards . '> <esc>i<right><c-r>=snipMate#BackwardsSnippet()<cr>'
-exec 'ino <silent> <c-r>' . g:snips_trigger_key . ' <c-r>=ShowAvailableSnips()<cr>'
+exec 'ino <silent> <c-r>' . g:snips_trigger_key . ' <c-r>=snipMate#ShowAvailableSnips()<cr>'
 
 " maybe there is a better way without polluting registers ?
 exec 'xnoremap ' . g:snips_trigger_key. ' s<c-o>:let<space>g:snipmate_content_visual=getreg('1')<cr>'
