@@ -21,8 +21,11 @@ if (!exists('g:snipMateSources'))
   let g:snipMateSources['default'] = funcref#Function('snipMate#DefaultPool')
 endif
 
-au BufRead,BufNewFile *.snippets\= set ft=snippet
-au FileType snippet setl noet fdm=expr fde=getline(v:lnum)!~'^\\t\\\\|^$'?'>1':1
+au BufRead,BufNewFile *.snippet set ft=snippet
+au FileType snippet setl noet
+
+au BufRead,BufNewFile *.snippets set ft=snippets
+au FileType snippets setl noet fdm=expr fde=getline(v:lnum)!~'^\\t\\\\|^$'?'>1':1
 
 " config which can be overridden (shared lines)
 if !exists('g:snipMate')
