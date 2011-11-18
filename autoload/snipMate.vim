@@ -7,16 +7,18 @@ let s:snipMate = g:snipMate
 " if filetype is objc, cpp, or cs also append snippets from scope 'c'
 " you can add multiple by separating scopes by ',', see s:AddScopeAliases
 " TODO add documentation to doc/*
-let s:snipMate['scope_aliases'] = get(s:snipMate,'scope_aliases',
-	  \ {'objc' :'c'
-	  \ ,'cpp': 'c'
-	  \ ,'cs':'c'
-	  \ ,'xhtml': 'html'
-	  \ ,'html': 'javascript'
-	  \ ,'php': 'php,html,javascript'
-	  \ ,'ur': 'html,javascript'
-	  \ ,'mxml': 'actionscript'
-	  \ } )
+let s:snipMateDefault = {
+	\ 'objc' :'c',
+	\ 'cpp': 'c',
+	\ 'cs':'c',
+	\ 'xhtml': 'html',
+	\ 'html': 'javascript',
+	\ 'php': 'php,html,javascript',
+	\ 'ur': 'html,javascript',
+	\ 'mxml': 'actionscript',
+	\ }
+
+let s:snipMate['scope_aliases'] = get(s:snipMateDefault, 'scope_aliases', s:snipMate)
 
 " set this to "\<tab>" to make snipmate not swallow tab (make sure to not have
 " expandtab set). Remember that you can always enter tabs by <c-v> <tab> then
