@@ -90,7 +90,7 @@ this section. Basically, installation consists of 2 simple steps:
 2. Install snippets
 
 
-snipate dependencies
+snipmate dependencies
 ==============
 Important to note is that since version 1.0 we depend on this 2 vim plugins:
     * `vim-addon-mw-utils`_ providing the implementation for caching parsed
