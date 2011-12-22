@@ -5,11 +5,12 @@ syn match placeHolder '\${\d\+\(:.\{-}\)\=}' contains=snipCommand
 syn match tabStop '\$\d\+'
 syn match snipEscape '\\\\\|\\`'
 syn match snipCommand '\%(\\\@<!\%(\\\\\)*\)\@<=`.\{-}\%(\\\@<!\%(\\\\\)*\)\@<=`'
-syn match snippet '^snippet.*' transparent contains=multiSnipText,snipKeyword
+syn match snippet '^snippet.*' contains=multiSnipText,snipKeyword
 syn match multiSnipText '\S\+ \zs.*' contained
 syn match snipKeyword '^snippet'me=s+8 contained
 syn match snipError "^[^#s\t].*$"
 
+hi link snippet       Identifier
 hi link snipComment   Comment
 hi link multiSnipText String
 hi link snipKeyword   Keyword
