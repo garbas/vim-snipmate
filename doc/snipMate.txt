@@ -125,9 +125,17 @@ Example 2: ~
 Add to your ~/.vimrc: For each know snippet add a second version ending in _
 adding folding markers
 >
-  fun! AddFolding(text)
-    return "# {{{1\n".a:text."\n# }}}"
-  endf
+	let g:commentChar = {
+		\ 'vim': '"',
+		\ 'c': '//',
+		\ 'cpp': '//',
+		\ 'sh': '#',
+		\ 'python': '#'
+		\}
+	" url https://github.com/garbas/vim-snipmate/issues/49
+	fun! AddFolding(text)
+		return substitute(a:text,'\n'," ".g:commentChar[&ft]." {{{\n",1)."\n".g:commentChar[&ft]." }}}"
+	endf
 
   fun! SnippetsWithFolding(scopes, trigger, result)
     " hacky: temporarely remove this function to prevent infinite recursion:
