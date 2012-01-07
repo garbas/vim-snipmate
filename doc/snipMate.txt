@@ -77,8 +77,17 @@ Adding snippets: >
 Using snippets:
 >
   g:snipMate.scope_aliases
-< defines which snippets typse are available when you edit a buffer.
-  You can override the default in autoload/snipMate.vim in your .vimrc.
+< defines which snippets types are available when you edit a buffer.
+  You can override the default in autoload/snipMate.vim in your .vimrc. For
+  example, to add both ruby.snippets and ruby-rails.snippets for files of
+  filetype='ruby', add the following to your vimrc: >
+    let g:snipMate = {}
+    let g:snipMate.scope_aliases = {} 
+    let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails'
+
+< SnipMate scopes are akin to filetypes.  Setting a scope alias as shown above
+  allows multiple snippets files to be used for one filetype without actually
+  changing the filetype.
 
   <c-r><tab>: shows a list of available snippets
   XX<tab>   : will either show a list of all snippets starting with the
@@ -86,7 +95,7 @@ Using snippets:
 
   Add this to your .vimrc to not ignore tabs if there is no match: >
     let g:snipMate['no_match_completion_feedkeys_chars'] = "\<tab>"
->
+<
 
  *snipMate-disambiguation*
 What happens if multiple files or filetypes define the same snippet name or if
@@ -184,7 +193,10 @@ Note that dotted
 	:set ft=html.eruby syntax=sql
 
 to activate snippets for both HTML, eRuby and sql for the current file.
-See g:snipMate['get_scopes'] in plugin/snipMate.vim.
+See g:snipMate['get_scopes'] in plugin/snipMate.vim. However, this is not
+recommended, as it can have unwanted side effects (appears to break some forms
+of syntax highlighting).  Instead, set g:snipMate.scope_aliases. 
+See|snipMate-usage|.
 
 The syntax for snippets in *.snippets files is the following: >
 
