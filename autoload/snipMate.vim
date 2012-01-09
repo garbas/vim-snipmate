@@ -10,13 +10,12 @@ catch /.*/
 	echoe "you're missing tlib. See install instructions at ".expand('<sfile>:h:h').'/README.rst'
 endtry
 
-" if filetype is objc, cpp, or cs also append snippets from scope 'c'
+" if filetype is objc or cpp also append snippets from scope 'c'
 " you can add multiple by separating scopes by ',', see s:AddScopeAliases
 " TODO add documentation to doc/*
 let s:snipMate['scope_aliases'] = get(s:snipMate,'scope_aliases',
 	  \ {'objc' :'c'
 	  \ ,'cpp': 'c'
-	  \ ,'cs':'c'
 	  \ ,'xhtml': 'html'
 	  \ ,'html': 'javascript'
 	  \ ,'php': 'php,html,javascript'
