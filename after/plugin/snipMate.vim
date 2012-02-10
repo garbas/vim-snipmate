@@ -18,6 +18,10 @@ if !exists('g:snips_trigger_key_backwards')
   let g:snips_trigger_key_backwards = '<s-' . substitute(g:snips_trigger_key, '[<>]', '', 'g')
 endif
 
+if !exists('g:snipMateAllowMatchingDot')
+	let g:snipMateAllowMatchingDot = 1
+endif
+
 exec 'ino <silent> ' . g:snips_trigger_key . ' <c-g>u<c-r>=snipMate#TriggerSnippet()<cr>'
 exec 'snor <silent> ' . g:snips_trigger_key . ' <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>'
 exec 'ino <silent> ' . g:snips_trigger_key_backwards . '> <c-r>=snipMate#BackwardsSnippet()<cr>'
