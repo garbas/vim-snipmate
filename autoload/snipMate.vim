@@ -719,9 +719,13 @@ endf
 " used by both: completion and insert snippet
 fun! snipMate#GetSnippetsForWordBelowCursor(word, suffix, break_on_first_match)
 	" Setup lookups: '1.2.3' becomes [1.2.3] + [3, 2.3]
-	let parts = split(a:word, '\W\zs')
-	if len(parts) > 2
-		let parts = parts[-2:] " max 2 additional items, this might become a setting
+	if g:snipMateAllowMatchingDot
+		let parts = split(a:word, '\W\zs')
+		if len(parts) > 2
+			let parts = parts[-2:] " max 2 additional items, this might become a setting
+		endif
+	else
+		let parts = [a:word]
 	endif
 	let lookups = [a:word.a:suffix]
 	let lookup = ''
@@ -732,9 +736,11 @@ fun! snipMate#GetSnippetsForWordBelowCursor(word, suffix, break_on_first_match)
 		endif
 	endfor
 
-	" allow matching '.'
-	if a:word =~ '\.$'
-		call add(lookups, '.'.a:suffix)
+	if g:snipMateAllowMatchingDot
+		" allow matching '.'
+		if a:word =~ '\.$'
+			call add(lookups, '.'.a:suffix)
+		endif
 	endif
 
 	call filter(lookups, 'v:val != ""')
