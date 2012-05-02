@@ -24,6 +24,7 @@ let s:c['scope_aliases'] = get(s:c,'scope_aliases',
 	  \ {'objc' :'c'
 	  \ ,'cpp': 'c'
 	  \ ,'cs':'c'
+	  \ ,'cu':'c'
 	  \ ,'xhtml': 'html'
 	  \ ,'html': 'javascript'
 	  \ ,'php': 'php,html,javascript'
