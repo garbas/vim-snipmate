@@ -20,17 +20,17 @@ let s:c.read_snippets_cached = get(s:c, 'read_snippets_cached', {'func' : functi
 " if filetype is objc, cpp, or cs also append snippets from scope 'c'
 " you can add multiple by separating scopes by ',', see s:AddScopeAliases
 " TODO add documentation to doc/*
-let s:c['scope_aliases'] = get(s:c,'scope_aliases',
-	  \ {'objc' :'c'
-	  \ ,'cpp': 'c'
-	  \ ,'cs':'c'
-	  \ ,'xhtml': 'html'
-	  \ ,'html': 'javascript'
-	  \ ,'php': 'php,html,javascript'
-	  \ ,'ur': 'html,javascript'
-	  \ ,'mxml': 'actionscript'
-	  \ ,'eruby': 'eruby-rails,html'
-	  \ } )
+let s:snipMateDefault = {
+	\ 'objc' :'c',
+	\ 'cpp': 'c',
+	\ 'cs':'c',
+	\ 'xhtml': 'html',
+	\ 'html': 'javascript',
+	\ 'php': 'php,html,javascript',
+	\ 'ur': 'html,javascript',
+	\ 'mxml': 'actionscript',
+	\ }
+let s:c['scope_aliases'] = get(s:snipMateDefault, 'scope_aliases', s:c)
 
 " set this to "\<tab>" to make snipmate not swallow tab (make sure to not have
 " expandtab set). Remember that you can always enter tabs by <c-v> <tab> then
