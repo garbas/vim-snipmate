@@ -28,10 +28,10 @@ if (!exists('g:snipMateSources'))
 endif
 
 au BufRead,BufNewFile *.snippet set ft=snippet
-au FileType snippet setl noet
+au FileType snippet setl noet nospell
 
 au BufRead,BufNewFile *.snippets set ft=snippets
-au FileType snippets setl noet fdm=expr fde=getline(v:lnum)!~'^\\t\\\\|^$'?'>1':1
+au FileType snippets setl noet nospell fdm=expr fde=getline(v:lnum)!~'^\\t\\\\|^$'?'>1':1
 
 " config which can be overridden (shared lines)
 if !exists('g:snipMate')
