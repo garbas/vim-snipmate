@@ -17,12 +17,13 @@ endtry
 let s:c.cache_parsed_snippets_on_disk = get(s:c, 'cache_parsed_snippets_on_disk', 0)
 let s:c.read_snippets_cached = get(s:c, 'read_snippets_cached', {'func' : function('snipMate#ReadSnippetsFile'), 'version': 3, 'use_file_cache': s:c.cache_parsed_snippets_on_disk})
 
-" if filetype is objc, cpp, or cs also append snippets from scope 'c'
+" if filetype is objc, cpp, cs or cu also append snippets from scope 'c'
 " you can add multiple by separating scopes by ',', see s:AddScopeAliases
 " TODO add documentation to doc/*
 let s:c.scope_aliases = get(s:c, 'scope_aliases', {})
 let s:c.scope_aliases.objc = get(s:c.scope_aliases, 'objc', 'c')
 let s:c.scope_aliases.cpp = get(s:c.scope_aliases, 'cpp', 'c')
+let s:c.scope_aliases.cu = get(s:c.scope_aliases, 'cu', 'c')
 let s:c.scope_aliases.cs = get(s:c.scope_aliases, 'cs','c')
 let s:c.scope_aliases.xhtml = get(s:c.scope_aliases, 'xhtml', 'html')
 let s:c.scope_aliases.html = get(s:c.scope_aliases, 'html', 'javascript')
