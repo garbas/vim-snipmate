@@ -136,7 +136,7 @@ Using `Vundle`_
     Install dependencies:
     Bundle "MarcWeber/vim-addon-mw-utils"
     Bundle "tomtom/tlib_vim"
-    Bundle "snipmate-snippets"
+    Bundle "honza/snipmate-snippets"
 
     Install:
     Bundle "garbas/vim-snipmate"
