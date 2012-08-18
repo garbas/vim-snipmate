@@ -113,8 +113,8 @@ The parsed .snippets files are cached.
 
 in the current buffer to show a list via.
 
-------------------------------------------------------------------------------
-SNIPPET SOURCES                                      *snippet-sources*
+==============================================================================
+SNIPPET SOURCES                                     *snipMate-snippet-sources*
 
 snipMate is configurable.
 
