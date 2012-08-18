@@ -178,7 +178,7 @@ More details about all possible relative locations to |rtp| can be found in
 SYNTAX                                      *snippet-syntax* *snipMate-syntax*
 
 Default snippet sources [1], you can add your own as illustrated in
-|snippet-sources|.
+|snipMate-snippet-sources|.
 
 trigger: the snippet's name.
 |rtp|  : Vim's |runtimepath| path list
