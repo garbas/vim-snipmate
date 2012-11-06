@@ -172,6 +172,7 @@ We also encourage people to maintain sets of snippets for particular use cases
 so that all users can benefit from them.  People can list their snippet repositories here:
 
      * https://github.com/rbonvall/snipmate-snippets-bib (snippets for BibTeX files)
+     * https://github.com/sudar/vim-arduino-snippets (snippets for Arduino files)
 
 Installation using VAM: "github:rbonvall/snipmate-snippets-bib"
 
