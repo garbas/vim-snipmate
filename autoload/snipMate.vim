@@ -650,7 +650,7 @@ fun! snipMate#DefaultPool(scopes, trigger, result)
 	for [f,opts] in items(snipMate#GetSnippetFiles(1, a:scopes, a:trigger))
 		if opts.type == 'snippets'
 			for [trigger, name, contents, guard] in cached_file_contents#CachedFileContents(f, s:c.read_snippets_cached, 0)
-				if trigger !~ triggerR | continue | endif
+				if trigger !~ '\V'.triggerR | continue | endif
 				if snipMate#EvalGuard(guard)
 					call snipMate#SetByPath(a:result, [trigger, opts.name_prefix.' '.name], contents)
 				endif
