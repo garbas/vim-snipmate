@@ -565,7 +565,14 @@ endf
 fun! s:Glob(dir,  file)
 	let f = a:dir.a:file
 	if a:dir =~ '\*' || isdirectory(a:dir)
-		return split(glob(escape(f,"{}")),"\n")
+		" vim's glob() is somewhat unreliable since it uses the
+		" user's current shell which may accept different patterns
+		" (POSIX vs. zsh vs. bash vs. ...). On my system, that
+		" leads to glob() sometimes returning files that don't
+		" exist, so filter the returned list to make sure that the
+		" files really exist in the filesystem.
+		let res = glob(escape(f,"{}"), 0, 1)
+		return filter(res, 'filereadable(v:val)')
 	else
 		return filereadable(f) ? [f] : []
 	endif
