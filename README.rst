@@ -106,12 +106,11 @@ Important to note is that since version 1.0 we depend on 2 vim plugins:
 Using `VAM`_ (recommended)
 ------------
 
-::
+- Add `snipmate-snippets` to the names to be installed. Or use
+  "github:name/repo" if you want to use a non standard upstream.
 
-    Add snipmate-snippets to the names to be installed. Or use
-    "github:name/repo" if you want to use a non standard upstream.
-    The default snippets depend on "snipmate" so VAM will fetch the core along
-    with its dependencies automatically
+The default snippets depend on "snipmate" so VAM will fetch the core along
+with its dependencies automatically.
 
 Using `pathogen`_
 --------------------------------------
@@ -173,13 +172,12 @@ so that all users can benefit from them.  People can list their snippet reposito
 
      * https://github.com/rbonvall/snipmate-snippets-bib (snippets for BibTeX files)
      * https://github.com/sudar/vim-arduino-snippets (snippets for Arduino files)
+     * https://github.com/zedr/zope-snipmate-bundle.git (snippets for Python, TAL and ZCML)
 
 Installation using VAM: "github:rbonvall/snipmate-snippets-bib"
 
 Why forking snipMate?
 =====================
-
-::
 
     After several unsuccessful attempts of contacting Michael Sanders, no
     commits in last half year and long pull request line on github (none of
@@ -205,10 +203,10 @@ Why forking snipMate?
 Known Bugs
 =============
 
-
     * Set one value default as input of another value.
       https://github.com/garbas/vim-snipmate/issues/59
       [2011-10-18, `bogdan`_]
+
 
 TODO / Future
 =============
