@@ -571,8 +571,13 @@ fun! s:Glob(dir,  file)
 		" leads to glob() sometimes returning files that don't
 		" exist, so filter the returned list to make sure that the
 		" files really exist in the filesystem.
-		let res = glob(escape(f,"{}"), 0, 1)
-		return filter(res, 'filereadable(v:val)')
+		let res = split(glob(escape(f,"{}")), "\n")
+
+		if !empty(res)
+			return filter(res, 'filereadable(v:val)')
+		else
+			return []
+		endif
 	else
 		return filereadable(f) ? [f] : []
 	endif
