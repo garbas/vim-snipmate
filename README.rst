@@ -181,6 +181,7 @@ so that all users can benefit from them.  People can list their snippet reposito
      * https://github.com/rbonvall/snipmate-snippets-bib (snippets for BibTeX files)
      * https://github.com/sudar/vim-arduino-snippets (snippets for Arduino files)
      * https://github.com/zedr/zope-snipmate-bundle.git (snippets for Python, TAL and ZCML)
+     * https://github.com/bonsaiben/bootstrap-snippets (snippets for Twitter Bootstrap markup, in HTML and Haml)
 
 Installation using VAM: "github:rbonvall/snipmate-snippets-bib"
 
