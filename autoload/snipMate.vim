@@ -7,7 +7,7 @@ let s:c = g:snipMate
 try
 	call tlib#input#List('mi', '', [])
 catch /.*/
-	echoe "you're missing tlib. See install instructions at ".expand('<sfile>:h:h').'/README.rst'
+	echoe "you're missing tlib. See install instructions at ".expand('<sfile>:h:h').'/README.md'
 endtry
 
 " match $ which doesn't follow a \

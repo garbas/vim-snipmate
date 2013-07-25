@@ -21,7 +21,7 @@ set cpo&vim
 try
 	call funcref#Function('')
 catch /.*/
-	echoe "you're missing vim-addon-mw-utils. See install instructions at ".expand('<sfile>:h:h').'/README.rst'
+	echoe "you're missing vim-addon-mw-utils. See install instructions at ".expand('<sfile>:h:h').'/README.md'
 endtry
 
 if (!exists('g:snipMateSources'))
