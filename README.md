@@ -30,7 +30,7 @@ looking at the [vim-snippets][vim-snippets] repository.
         % git clone https://github.com/garbas/vim-snipmate.git
 
         # Optional:
-        % git clone https:/github.com/honza/vim-snippets.git
+        % git clone https://github.com/honza/vim-snippets.git
 
 * Using [VAM][vam], add `vim-snippets` to the list of packages to be installed.
 
