@@ -79,7 +79,7 @@ fun! snipMate#expandSnip(snip, col)
 	endif
 
 	" Insert snippet with proper indentation
-	let indent = indent(lnum) + 1
+	let indent = match(line, '\S\|$') + 1
 	call setline(lnum, line . snipLines[0])
 	call append(lnum, map(snipLines[1:], "empty(v:val) ? v:val : '" . strpart(line, 0, indent - 1) . "' . v:val"))
 
