@@ -250,7 +250,7 @@ the tab stop. This text then can be copied throughout the snippet using "$#",
 given # is the same number as used before. So, to make a C for loop: >
 
     snippet for
-        for (${2:i}; $2 < ${1:count}; $1++) {
+        for (${2:i}=0; $2 < ${1:count}; $2++) {
             ${4}
         }
 
