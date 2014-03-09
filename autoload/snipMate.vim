@@ -642,9 +642,10 @@ endf
 " used by both: completion and insert snippet
 fun! snipMate#GetSnippetsForWordBelowCursor(word, exact)
 	" Setup lookups: '1.2.3' becomes [1.2.3] + [3, 2.3]
-    if len(word) == 0
-        return ''
 	let parts = split(a:word, '\W\zs')
+    if !len(parts)
+        return ''
+    endif
 	if len(parts) > 2
 		let parts = parts[-2:] " max 2 additional items, this might become a setting
 	endif
