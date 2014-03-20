@@ -26,6 +26,7 @@ if !exists('g:snipMate_no_default_aliases') || !g:snipMate_no_default_aliases
 	let s:c.scope_aliases.ur = get(s:c.scope_aliases, 'ur', 'html,javascript')
 	let s:c.scope_aliases.mxml = get(s:c.scope_aliases, 'mxml', 'actionscript')
 	let s:c.scope_aliases.eruby = get(s:c.scope_aliases, 'eruby', 'eruby-rails,html')
+	let s:c.scope_aliases.ruby = get(s:c.scope_aliases, 'ruby', 'ruby,rails,rspec')
 endif
 
 " set this to "\<tab>" to make snipmate not swallow tab (make sure to not have
