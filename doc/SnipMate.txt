@@ -255,6 +255,9 @@ overridden on a per-snippet basis by defining the snippet with a bang (!): >
 Two bangs will remove the trigger entirely from SnipMate's lookup. In this
 case any snippet text is unused.
 
+Three bangs will remove the trigger from the current scope. In this
+case any snippet text is unused.
+
 Note: Hard tabs in the expansion text are required. When the snippet is
 expanded in the text and 'expandtab' is set, each tab will be replaced with
 spaces based on 'softtabstop' if nonzero or 'shiftwidth' otherwise.
