@@ -87,7 +87,7 @@ languages. For this we provide two options: scope aliases and the
 `:SnipMateLoadScope` command. Scope aliases simply say "whenever this scope is
 loaded, also load this other scope:
 
-    let g:snipMate = {}
+    let g:snipMate = get(g:, 'snipMate', {})
     let g:snipMate.scope_aliases = {}
     let g:snipMate.scope_aliases['ruby'] = 'ruby,rails'
 
