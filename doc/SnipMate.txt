@@ -168,6 +168,21 @@ g:snipMate.always_choose_first
                                 Always choose first snippet if there are
                                 multiple left
 
+g:snipMate.comment_in_completion
+                                If set to 1 (default is 0), snippet comment will
+                                be included in the popup menu used for snippet
+                                completion, like with <Plug>snipMateShow. A
+                                comment can be set by adding a line, which
+                                starts with a #, right before the line, which
+                                starts with snippet.
+
+g:snipMate.comment_in_completion_max_length
+                                This variable is only used if
+                                comment_in_completion is set to 1. This variable
+                                expects an Integer. It cuts comment strings,
+                                shown in the completion menu, at the given max
+                                length.
+
 g:snipMate.description_in_completion
                                 If set to 1 (default is 0), snippet
                                 descriptions will be included in the popup

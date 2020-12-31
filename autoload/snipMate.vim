@@ -211,6 +211,11 @@ fun! snipMate#ReadSnippetsFile(file) abort
 	if !filereadable(a:file) | return [result, new_scopes] | endif
 	let inSnip = 0
 	let line_no = 0
+	let snipComment = ""
+	let snipCommentMaxLength = get(g:snipMate, 'comment_in_completion_max_length', 60)
+	if type(snipCommentMaxLength) != type(0)
+		let snipCommentMaxLength = 60
+	endif
 	let snipversion = get(g:snipMate, 'snippet_version', 0)
 	for line in readfile(a:file) + ["\n"]
 		let line_no += 1
@@ -220,8 +225,15 @@ fun! snipMate#ReadSnippetsFile(file) abort
 			continue
 		elseif inSnip
 			call add(result, [trigger, name,
-						\     content[:-2], bang, snipversion])
+						\     content[:-2], bang, snipversion, snipComment])
 			let inSnip = 0
+			let snipComment = ""
+		endif
+		if line =~ '^#.*$'
+			let snipComment = line[1:]
+			if strlen(snipComment) > snipCommentMaxLength
+				let snipComment = strpart(snipComment, 0, snipCommentMaxLength) . " ..."
+			endif
 		endif
 
 		if line[:6] == 'snippet'
@@ -343,7 +355,7 @@ function! s:snippet_filenames(scope, trigger) abort
 	return map(mid[:2], 'v:val . "s"') + mid[3:]
 endfunction
 
-function! snipMate#SetByPath(dict, trigger, path, snippet, bang, snipversion) abort
+function! snipMate#SetByPath(dict, trigger, path, snippet, bang, snipversion, snipComment) abort
 	let d = a:dict
 	if a:bang == 2
 		unlet! d[a:trigger]
@@ -351,7 +363,7 @@ function! snipMate#SetByPath(dict, trigger, path, snippet, bang, snipversion) ab
 	elseif !has_key(d, a:trigger) || a:bang == 1
 		let d[a:trigger] = {}
 	endif
-	let d[a:trigger][a:path] = [a:snippet, a:snipversion]
+	let d[a:trigger][a:path] = [a:snippet, a:snipversion, a:snipComment]
 endfunction
 
 if v:version < 704 || has('win32')
@@ -396,9 +408,9 @@ function! snipMate#DefaultPool(scopes, trigger, result) abort
 		call filter(scopes, 'index(scopes_done, v:val) == -1')
 	endwhile
 
-	for [trigger, desc, contents, bang, snipversion] in s:lookup_state.snips
+	for [trigger, desc, contents, bang, snipversion, snipComment] in s:lookup_state.snips
 		if trigger =~ '\V\^' . escape(a:trigger, '\')
-			call snipMate#SetByPath(a:result, trigger, desc, contents, bang, snipversion)
+			call snipMate#SetByPath(a:result, trigger, desc, contents, bang, snipversion, snipComment)
 		endif
 	endfor
 endfunction
@@ -526,7 +538,9 @@ fun! snipMate#GetSnippetsForWordBelowCursorForComplete(word) abort
 	let matches = snipMate#GetSnippetsForWordBelowCursor(a:word, 0)
 	let snippets = []
 	for [trigger, dict] in matches
-		if get(g:snipMate, 'description_in_completion', 0)
+		if get(g:snipMate, 'comment_in_completion', 0)
+			call extend(snippets, map(keys(dict), '{ "word" : trigger, "menu" : dict[v:val][2]}'))
+		elseif get(g:snipMate, 'description_in_completion', 0)
 			call extend(snippets, map(keys(dict),
 						\ '{ "word" : trigger, "menu" : v:val, "dup" : 1 }'))
 		else
