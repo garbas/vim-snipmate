@@ -50,6 +50,9 @@ looking at the [vim-snippets][vim-snippets] repository.
 Press <tab> and try :SnipMateOpenSnippetFiles for starting.
 Also see doc/SnipMate.txt to learn all SnipMate
 
+## Example(s) ##
+- [How to set custom directory for the SnipMate](https://github.com/garbas/vim-snipmate/commit/f1432b6022c9815cd89b9197b06e3efdc3596b78#r50153453) 
+
 ## FAQ ##
 
 > SnipMate doesn't work / My snippets aren't triggering
