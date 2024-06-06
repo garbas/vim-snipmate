@@ -228,8 +228,11 @@ fun! snipMate#ReadSnippetsFile(file) abort
 		if line[:6] == 'snippet'
 			let inSnip = 1
 			let bang = (line[7] == '!')
-			if bang
+			if bang "!!
 				let bang += line[8] == '!'
+			endif
+			if bang "!!!
+			  let bang += line[9] == '!'
 			endif
 			let trigger = strpart(line, 8 + bang)
 			let name = ''
@@ -346,7 +349,13 @@ endfunction
 
 function! snipMate#SetByPath(dict, trigger, path, snippet, bang, snipversion) abort
 	let d = a:dict
-	if a:bang == 2
+	if a:bang == 3
+	  unlet! d[a:trigger][a:path]
+	  if len(d[a:trigger]) == 0
+	    unlet! d[a:trigger]
+	  endif
+	  return
+	elseif a:bang == 2
 		unlet! d[a:trigger]
 		return
 	elseif !has_key(d, a:trigger) || a:bang == 1
