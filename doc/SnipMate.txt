@@ -232,8 +232,8 @@ Autocommands allow code written by the user to be executed automatically at
 certain points within SnipMate's normal execution. Here is a list of events
 available to the User. All of these are subject to change.
 
-SnipTriggerPre                                       *SnipMate-SnipTriggerPre*
-SnipTriggerPost                                     *SnipMate-SnipTriggerPost*
+SnipLookupPre                                       *SnipMate-SnipLookupPre*
+SnipLookupPost                                     *SnipMate-SnipLookupPost*
 
                 These two events are run when determining what text to use as
                 the trigger. The Pre version can be used to forgo SnipMate's
@@ -246,8 +246,8 @@ SnipTriggerPost                                     *SnipMate-SnipTriggerPost*
                 possible lookups that SnipMate should try as possible
                 triggers. They are tried in order from the beginning.
 
-                If SnipTriggerPre runs and puts anything in b:snip_lookups,
-                SnipMate's normal lookups will not be tried. SnipTriggerPost
+                If SnipLookupPre runs and puts anything in b:snip_lookups,
+                SnipMate's normal lookups will not be tried. SnipLookupPost
                 runs regardless.
 
                 The following example only allows a '.' as a possible trigger
